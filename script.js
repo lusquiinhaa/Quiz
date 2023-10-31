@@ -119,16 +119,18 @@ function displayQuestion() {
     });
 
     document.getElementById("result").textContent = "";
+    document.getElementById("score").textContent = `Pontuação: ${score}`;
+    document.getElementById("prev-button").disabled = currentQuestionIndex === 0;
 }
 
 function checkAnswer(selectedIndex) {
     const currentQuestion = questions[currentQuestionIndex];
     if (selectedIndex === currentQuestion.correctAnswer) {
         score++;
+        document.getElementById("result").textContent = "Correto!";
+    } else {
+        document.getElementById("result").textContent = "Incorreto. A resposta correta é: " + currentQuestion.choices[currentQuestion.correctAnswer];
     }
-
-    const resultMessage = (selectedIndex === currentQuestion.correctAnswer) ? "Correto!" : "Incorreto.";
-    document.getElementById("result").textContent = `Resposta: ${resultMessage}`;
 
     document.getElementById("next-button").disabled = false;
 }
@@ -144,6 +146,13 @@ function nextQuestion() {
         document.getElementById("choices").innerHTML = "";
         document.getElementById("result").textContent = "";
         document.getElementById("next-button").disabled = true;
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        displayQuestion();
     }
 }
 
