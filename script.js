@@ -1,3 +1,34 @@
+// Função para embaralhar as opções de resposta
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function displayQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById("question").textContent = `Pergunta ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+    
+    const choicesList = document.getElementById("choices");
+    choicesList.innerHTML = "";
+
+    // Embaralhe as opções de resposta antes de exibi-las
+    const shuffledChoices = shuffleArray(currentQuestion.choices);
+
+    shuffledChoices.forEach((choice, index) => {
+        const choiceButton = document.createElement("button");
+        choiceButton.textContent = choice;
+        choiceButton.onclick = () => checkAnswer(currentQuestion.choices.indexOf(choice));
+        choicesList.appendChild(document.createElement("li").appendChild(choiceButton));
+    });
+
+    document.getElementById("result").textContent = "";
+    document.getElementById("score").textContent = `Pontuação: ${score}`;
+    document.getElementById("prev-button").disabled = currentQuestionIndex === 0;
+}
+
 const questions = [
     {
         question: "Qual é a principal função da logística?",
@@ -98,7 +129,33 @@ const questions = [
         question: "O que é a intermodalidade na logística?",
         choices: ["Uso de diferentes modos de transporte", "Interação social", "Uso de um único modo de transporte"],
         correctAnswer: 0
-    }
+    },
+    // Perguntas adicionais sobre transporte, armazenamento, placas de risco e termos técnicos
+    {
+        question: "O que é um contentor intermodal?",
+        choices: ["Um recipiente de transporte de carga", "Uma estação de rádio", "Um instrumento musical"],
+        correctAnswer: 0
+    },
+    {
+        question: "O que significa a sigla OEA no contexto da logística?",
+        choices: ["Operador Econômico Autorizado", "Ordem de Entrega Atrasada", "Organização de Empreendedores Aventureiros"],
+        correctAnswer: 0
+    },
+    {
+        question: "O que são placas de risco na logística?",
+        choices: ["Símbolos que indicam perigos de substâncias", "Sinais de trânsito", "Tabelas de classificação de alimentos"],
+        correctAnswer: 0
+    },
+    {
+        question: "O que é um WMS na logística?",
+        choices: ["Warehouse Management System", "Web Marketing Strategy", "Wireless Mobile Service"],
+        correctAnswer: 0
+    },
+    {
+        question: "O que significa o termo 'cross-docking'?",
+        choices: ["Processo de transferência rápida de mercadorias", "Prática de cruzar estradas", "Esporte radical"],
+        correctAnswer: 0
+    },
 ];
 
 let currentQuestionIndex = 0;
