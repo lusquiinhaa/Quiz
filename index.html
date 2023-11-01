@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Quiz de Logística 3L3 </title>
+    <title>Quiz de Logística 3L3</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Quiz Teste seu conhecimento - OET 3L3</h1>
-        <p id="question"></p>
-        <ul id="choices"></ul>
-        <p id="result"></p>
-        <button id="next-button" onclick="nextQuestion()">Próxima Pergunta</button>
+    <div class="center-container">
+        <input type="checkbox" class="sr-only" id="darkmode-toggle">
+        <label for="darkmode-toggle" class="toggle">
+            <span>Toggle dark mode</span>
+        </label>
+        <div class="quiz-container">
+            <h1>Quiz Teste seu conhecimento - OET 3L3</h1>
+            <p id="question"></p>
+            <ul id="choices"></ul>
+            <p id="result"></p>
+            <button id="next-button" onclick="nextQuestion()">Próxima Pergunta</button>
+        </div>
+        <footer id="footer">Lucas Lima, Flávia Lima, João Silva, Leonardo Valentim, Stephany Cassimiro</footer>
     </div>
-    <footer id="footer">Lucas Lima, Flávia Lima, João Silva, Leonardo Valentim, Stephany Cassimiro</footer>
     <script src="script.js"></script>
 </body>
 </html>
