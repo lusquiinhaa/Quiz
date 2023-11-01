@@ -68,3 +68,88 @@ button:hover {
     bottom: 0;
     width: 100%;
 }
+
+/* Center Container Styles */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #eefff4 25%, #a0ffd9 50%, #5c0095 75%, #01072a);
+    background-size: 300% 300%;
+    background-position: top left;
+    transition: background-position .5s;
+    color: #1e1e1e;
+  }
+  .center-container:has(#darkmode-toggle:checked) {
+    background-position: 100% 100%;
+    color: #d0d0d0;
+  }
+  /* End of Center Container Styles */
+  
+  /* Dark Mode Toggle Styles */
+  .toggle {
+    font-size: 2rem;
+    border: .125em solid currentColor;
+    border-radius: 2em;
+    cursor: pointer;
+    display: block;
+    height: 2em;
+    position: relative;
+    width: 3.75em;
+  }
+  .toggle span {
+    background-color: currentColor;
+    border-radius: 2em;
+    display: block;
+    height: 1.5em;
+    left: .25em;
+    overflow: hidden;
+    position: absolute;
+    top: .25em;
+    text-indent: -9999px;
+    transition: left .25s;
+    width: 1.5em;
+    z-index: 2;
+  }
+  
+  .toggle::before,
+  .toggle::after {
+    content: '';
+    display: block;
+    border-radius: 1em;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .toggle::after {
+    box-shadow: .25em .25em #5901d8;
+    height: 1.125em;
+    right: .9em;
+    top: .125em;
+    width: 1.125em;
+  }
+  
+  .toggle::before {
+    background-color: #ffc409;
+    height: .625em;
+    outline: .25em dotted #ffc409;
+    outline-offset: .125em;
+    left: .7em;
+    top: .7em;
+    width: .625em;
+  }
+  
+  input:checked ~ .toggle span {
+    left: 2em;
+  }
+  /* End of Dark Mode Toggle Styles */
+  
+  .sr-only {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+  }
+  /* Rest of your existing CSS goes here */
+  
