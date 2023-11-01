@@ -41,7 +41,7 @@ const questions = [
     {
         question: "Qual é o objetivo do roteiramento na logística?",
         choices: shuffleArray(["Melhor rota para entrega", "Melhorar as rotas", "Rotas alternativas"]),
-        correctAnswer: "Encontrar a melhor rota para entrega",
+        correctAnswer: "Melhor rota para entrega",
         difficulty: "fácil"
     },
     {
