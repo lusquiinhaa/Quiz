@@ -10,7 +10,7 @@ function shuffleArray(array) {
 const questions = [
     {
         question: "Qual é a principal função da logística?",
-        choices: shuffleArray(["Gerenciar estoques", "Cozinhar comida", "Pintar quadros"]),
+        choices: shuffleArray(["Gerenciar estoques", "Cozinhar comida", "Long Travel Line"]),
         correctAnswer: "Gerenciar estoques"
     },
     {
@@ -194,3 +194,4 @@ function prevQuestion() {
 }
 
 displayQuestion();
+
